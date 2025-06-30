@@ -13,10 +13,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -24,20 +22,19 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build Vite project
+      - name: Build project
         run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./dist
+          path: dist
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
-
     permissions:
       pages: write
       id-token: write
