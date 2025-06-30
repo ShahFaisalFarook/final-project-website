@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+}
+@keyframes borderGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-borderGlow {
+  background-size: 300% 300%;
+  animation: borderGlow 6s ease infinite;
+}
+
+/* Neon flicker effect */
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 22%, 24%, 55% {
+    opacity: 0.3;
+  }
+}
+
+.neon-text {
+  color: #a78bfa;
+  text-shadow:
+    0 0 5px #a78bfa,
+    0 0 10px #a78bfa,
+    0 0 20px #a78bfa;
+  animation: flicker 3s infinite;
+}
+@layer utilities {
+  .glow-border {
+    border: 1px solid transparent;
+    background: linear-gradient(#1f1f1f, #1f1f1f) padding-box,
+      linear-gradient(45deg, #6366f1, #ec4899, #8b5cf6) border-box;
+    border-radius: 1rem;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+  }
+}
