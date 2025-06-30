@@ -7,7 +7,6 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "homepage": "https://ShahFaisalFarook.github.io/dialUs-Live",
   "devDependencies": {
     "@vitejs/plugin-react": "^4.6.0",
     "autoprefixer": "^10.4.21",
